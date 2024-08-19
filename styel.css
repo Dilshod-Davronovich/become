@@ -1,0 +1,70 @@
+body {
+    background-image: url(https://avatars.mds.yandex.net/i?id=b1b6a520e5250a86bdb6a0627e241b9d73b0b5d6-3589151-images-thumbs&n=13);
+    background-size: contain;
+    }
+    @font-face {
+        font-family: kichik;
+        src: url(stil/kichik.ttf);
+    }
+
+@font-face {
+    font-family: spike;
+    src: url(stil/spike.ttf);
+}
+ 
+.sarlavha{
+    text-align: center;
+    text-transform: capitalize;
+    font-size: 50px;
+    border: 5px solid #fd9309;
+    background-color: rgba(0, 151, 221, 0.555);
+    font-family: spike;
+    box-shadow: 15px 5px 15px 5px wheat;
+}
+.mavzu{
+    text-align: center;
+    text-transform: capitalize;
+    border: 1px solid #ddf507;
+    background-color: rgba(255, 255, 255, 0.521);
+}
+.darslar{
+    border: 3px inset #f70f0f;
+    width: 100px;
+    box-shadow: 5px 5px 5px 5px aqua;
+    background-color: #ddf507;
+    font-family: kichik;
+}
+.nomlar{
+    border: 2px ridge aqua;
+    width: 500px;
+    background-color: rgb(15, 77, 211);
+    font-size: 25px;
+    box-shadow: 5px 5px 5px 5px rgb(113, 247, 3);
+    font-family: kichik;
+}
+.tugma{
+    font-family: Arial, Helvetica, sans-serif;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: end;
+    justify-content: end;
+}
+.tugma a{
+    text-decoration: none;      
+    color: white;
+    font-size: 15px;
+    display: inline-block;
+    padding: 5px 15px;
+    border: 3px solid white;
+    margin: 0px 15px 20px 0px;
+    background-color:gray;
+    border-radius: 15px;        
+}              
+.ism{
+    border: 2px ridge #f1f1f1;
+    background-color: rgb(72, 7, 224);
+    height: 20px;
+    width: 69.8%;
+    font-size: 15px;
+}    
