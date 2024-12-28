@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html lang="uz">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CHSB uchun vaqt</title>  
+    <link rel="icon" href="data:image/png;base64,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">
+    <style>
+        @font-face {
+            font-family: becomi;
+            src: url(becomi.ttf);
+        }
+        body {
+            margin: 0;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background: linear-gradient(45deg, #FF5733, #33FF57, #3357FF, #FF33A1);
+            background-size: 400% 400%;
+            animation: gradientAnimation 10s ease infinite;
+            color: white;
+            font-family: Arial, sans-serif;
+        }
+        .header {
+            position: absolute;
+            top: 20px;
+            font-size: 40px;
+            font-weight: bold;
+            animation: rotateHorizontal 5s linear infinite;
+            font-family: becomi;
+        }
+        @keyframes rotateHorizontal {
+            from {
+                transform: rotateY(0deg);
+            }
+            to {
+                transform: rotateY(360deg);
+            }
+        }
+        @keyframes gradientAnimation {
+            0% {
+                background-position: 0% 50%;
+            }
+            50% {
+                background-position: 100% 50%;
+            }
+            100% {
+                background-position: 0% 50%;
+            }
+        }
+        .clock {
+            font-size: 150px;
+            font-weight: bold;
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        .form-container {
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            margin-top: 50px;
+            font-size: 18px;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+        .form-container label {
+            margin-right: 10px;
+        }
+        input {
+            margin: 10px;
+            padding: 10px;
+            font-size: 16px;
+        }
+        .spacer {
+            margin: 0 30px; /* Bu yerda bo'shliq qo'shildi */
+        }
+
+        /* Footer uchun stil */
+        .yozuv {
+            position: absolute;
+            bottom: 20px;  /* Footerni pastroq qildik */
+            font-size: 20px;
+            font-weight: bold;
+            color: rgb(255, 255, 255); /* Kumush rang */
+            text-align: center;
+            width: 100%;
+            letter-spacing: 3px;
+        }
+        a {
+            color: white;
+            font-family: Arial, Helvetica, sans-serif;
+        }
+
+        /* Media Queries uchun stil */
+        @media (max-width: 768px) {
+            .header {
+                font-size: 30px;
+                top: 10px;
+            }
+
+            .clock {
+                font-size: 100px;
+            }
+
+            .form-container {
+                flex-direction: column;
+                font-size: 16px;
+                margin-top: 20px;
+            }
+
+            .yozuv {
+                font-size: 18px;
+                bottom: 10px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .header {
+                font-size: 25px;
+            }
+
+            .clock {
+                font-size: 80px;
+            }
+
+            .form-container input {
+                width: 80%;
+            }
+
+            .yozuv {
+                font-size: 16px;
+                bottom: 10px;
+            }
+        }
+
+        @media (min-width: 1200px) {
+            .header {
+                font-size: 50px;
+            }
+
+            .clock {
+                font-size: 180px;
+            }
+
+            .form-container {
+                font-size: 20px;
+            }
+
+            .yozuv {
+                font-size: 22px;
+            }
+        }
+        
+        /* Kattalashtirish tugmasi */
+        #zoomButton {
+            position: fixed;
+            top: 15px;
+            right: 15px;
+            background: linear-gradient(45deg, #ff7e5f, #feb47b);
+            color: white;
+            font-size: 20px;
+            padding: 12px 20px;
+            border: none;
+            border-radius: 5px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+            cursor: pointer;
+            z-index: 999;
+            transition: all 0.4s ease;
+        }
+
+        #zoomButton:hover {
+            background: linear-gradient(45deg, #ff9a8b, #ff6a88);
+            transform: scale(1.1);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.5);
+        }
+
+        #zoomButton:active {
+            transform: scale(1.05);
+            background: linear-gradient(45deg, #ff6a88, #ff9a8b);
+        }
+
+        /* Fullscreen chiqish tugmasi */
+        #exitFullscreenButton {
+            position: fixed;
+            top: 15px;
+            right: 15px;
+            background: linear-gradient(45deg, #ff7e5f, #feb47b);
+            color: white;
+            font-size: 20px;
+            padding: 12px 20px;
+            border: none;
+            border-radius: 25px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+            cursor: pointer;
+            z-index: 999;
+            display: none;
+            transition: all 0.4s ease;
+        }
+
+        #exitFullscreenButton:hover {
+            background: linear-gradient(45deg, #ff9a8b, #ff6a88);
+            transform: scale(1.1);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.5);
+        }
+
+        #exitFullscreenButton:active {
+            transform: scale(1.05);
+            background: linear-gradient(45deg, #ff6a88, #ff9a8b);
+        }
+    </style>
+</head>
+<body>
+    <div class="header">BECOMI.UZ</div>
+    <div class="clock" id="clock">00:00:00</div>
+
+    <div class="form-container">
+        <label for="start-time">CHSB boshlanish vaqti:</label>
+        <input type="time" id="start-time">
+        
+        <div class="spacer"></div> <!-- O'rtada bo'shliq joyi -->
+        
+        <label for="end-time">CHSB tugash vaqti:</label>
+        <input type="time" id="end-time">
+    </div>
+
+    <!-- Footer qo'shish -->
+    <div class="yozuv">Developed by <a href="https://t.me/bexruzbek1030" target="_blank">Bexruzbek Qodirov</a></div>
+
+    <!-- Kattalashtirish tugmasi -->
+    <button id="zoomButton">Kattalashtirish</button>
+
+    <!-- Fullscreen chiqish tugmasi -->
+    <button id="exitFullscreenButton">Qaytarish</button>
+
+    <script>
+        function updateClock() {
+            const options = {
+                timeZone: 'Asia/Tashkent',
+                hour: '2-digit',
+                minute: '2-digit',
+                second: '2-digit',
+            };
+            const now = new Intl.DateTimeFormat('uz-UZ', options).format(new Date());
+            document.getElementById('clock').textContent = now;
+        }
+
+        setInterval(updateClock, 1000);
+        updateClock(); // Darhol chaqirish, 1 soniya kutmaslik uchun
+
+        // Kattalashtirish funksiyasi
+        const zoomButton = document.getElementById('zoomButton');
+        const exitFullscreenButton = document.getElementById('exitFullscreenButton');
+        let isZoomed = false;
+
+        zoomButton.addEventListener('click', () => {
+            if (!document.fullscreenElement) {
+                // Fullscreen rejimiga o'tish
+                document.documentElement.requestFullscreen();
+                zoomButton.textContent = 'Qaytarish';
+                exitFullscreenButton.style.display = 'block'; // Exit fullscreen tugmasini ko'rsatish
+                isZoomed = true;
+            }
+        });
+
+        // Exit fullscreen tugmasi
+        exitFullscreenButton.addEventListener('click', () => {
+            if (document.exitFullscreen) {
+                document.exitFullscreen();
+                zoomButton.textContent = 'Kattalashtirish';
+                exitFullscreenButton.style.display = 'none'; // Exit fullscreen tugmasini yashirish
+                isZoomed = false;
+            }
+        });
+
+        // Fullscreen holatini tekshirish
+        document.addEventListener('fullscreenchange', () => {
+            if (!document.fullscreenElement) {
+                zoomButton.textContent = 'Kattalashtirish';
+                exitFullscreenButton.style.display = 'none'; // Exit fullscreen tugmasini yashirish
+            }
+        });
+    </script>
+</body>
+</html>
