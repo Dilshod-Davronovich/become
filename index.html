@@ -1,0 +1,439 @@
+<!DOCTYPE html>
+<html lang="uz">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>30-maktab</title>
+  <link rel="icon" href="icon.png">
+  <style>
+    @font-face {
+      font-family: becomi;
+      src: url(becomi.ttf);
+    }
+
+    @font-face {
+      font-family: time;
+      src: url(time.ttf);
+    }
+
+    body {
+      margin: 0;
+      padding: 0;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+      background: url(fon.jpg);
+      background-size: cover;
+      background-position: top center;
+      filter: contrast(120%) brightness(110%);
+      color: rgb(255, 255, 255);
+      text-shadow: 0px 0px 2px rgba(0, 0, 0, 0.473);
+      font-family: Arial, sans-serif;
+    }
+
+    @keyframes gradientAnimation {
+      0% {
+        background-position: 0% 50%;
+      }
+
+      50% {
+        background-position: 100% 50%;
+      }
+
+      100% {
+        background-position: 0% 50%;
+      }
+    }
+
+    .clock {
+      font-size: 159px;
+      font-weight: bold;
+      text-align: center;
+      margin-bottom: 20px;
+      font-family: time;
+    }
+
+    .form-container {
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      margin-top: 50px;
+      font-size: 18px;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+
+    .form-container label {
+      margin-right: 15px;
+      font-family: time;
+      color: rgba(255, 255, 255, 0.8);
+    }
+
+    input {
+      margin: 10px;
+      padding: 10px;
+      font-size: 16px;
+    }
+
+    .spacer {
+      margin: 0 30px;
+    }
+
+    /* Mini taymer */
+    .mini-timer {
+      margin-bottom: -45px;
+      font-size: 14px;
+      color: rgba(255, 255, 255, 0.8);
+    }
+
+    #timer {
+      font-size: 70px;
+      font-weight: bold;
+      color: white;
+      text-shadow: 0px 0px 10px rgba(255, 255, 255, 0.7);
+    }
+
+    /* Footer */
+    .yozuv {
+      position: absolute;
+      bottom: 20px;
+      font-size: 20px;
+      font-weight: bold;
+      color: rgb(255, 255, 255);
+      text-align: center;
+      width: 100%;
+      letter-spacing: 3px;
+    }
+
+    a {
+      color: white;
+      font-family: Arial, Helvetica, sans-serif;
+    }
+
+    /* Kattalashtirish tugmasi */
+    #zoomButton {
+      position: fixed;
+      top: 15px;
+      right: 15px;
+      background: linear-gradient(45deg, #ffae00c5, #fffb029d);
+      color: white;
+      font-size: 20px;
+      padding: 12px 20px;
+      border: none;
+      border-radius: 5px;
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+      cursor: pointer;
+      z-index: 999;
+      transition: all 0.4s ease;
+    }
+
+    #zoomButton:hover {
+      transform: scale(1.1);
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.5);
+    }
+
+    #zoomButton:active {
+      transform: scale(1.05);
+    }
+
+    #exitFullscreenButton {
+      position: fixed;
+      top: 15px;
+      right: 15px;
+      background: linear-gradient(45deg, #ffae00c5, #fffb029d);
+      color: white;
+      font-size: 20px;
+      padding: 12px 20px;
+      border: none;
+      border-radius: 5px;
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+      cursor: pointer;
+      z-index: 999;
+      display: none;
+      transition: all 0.4s ease;
+    }
+
+    #exitFullscreenButton:hover {
+      transform: scale(1.1);
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.5);
+    }
+
+    #exitFullscreenButton:active {
+      transform: scale(1.05);
+    }
+
+    .header2 {
+      position: absolute;
+      top: 5px;
+      left: 5px;
+      display: flex;
+      align-items: center;
+    }
+
+    .header2 img {
+      max-width: 135px;
+      height: auto;
+      margin-right: 10px;
+      border-radius: 50%;
+    }
+
+    .header2 h1 {
+      font-size: 38px;
+      color: lightgoldenrodyellow;
+      margin: 0;
+      font-family: becomi;
+    }
+
+    #backgroundToggle {
+      position: fixed;
+      top: 70px;
+      right: 15px;
+      padding: 10px 20px;
+      font-size: 16px;
+      font-weight: bold;
+      background: #333;
+      color: #fff;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: background 0.3s ease;
+    }
+
+    #backgroundToggle:hover {
+      background: #555;
+    }
+
+    /* Media queries - moslashuvchanlik */
+
+    /* Katta ekranlar uchun */
+    @media (min-width: 1200px) {
+      body {
+        padding: 20px;
+      }
+      .clock {
+        font-size: 180px;
+      }
+      #timer {
+        font-size: 80px;
+      }
+      .header2 h1 {
+        font-size: 42px;
+      }
+      .header2 img {
+        max-width: 150px;
+      }
+      #zoomButton,
+      #exitFullscreenButton,
+      #backgroundToggle {
+        font-size: 22px;
+        padding: 14px 24px;
+      }
+      .yozuv {
+        font-size: 22px;
+      }
+    }
+
+    /* O'rta ekranlar uchun */
+    @media (max-width: 768px) {
+      .clock {
+        font-size: 100px;
+      }
+      #timer {
+        font-size: 50px;
+      }
+      .header2 h1 {
+        font-size: 28px;
+      }
+      .header2 img {
+        max-width: 100px;
+      }
+      #zoomButton,
+      #exitFullscreenButton,
+      #backgroundToggle {
+        font-size: 16px;
+        padding: 10px 15px;
+      }
+      .yozuv {
+        font-size: 16px;
+      }
+      .form-container label {
+        font-size: 16px;
+      }
+    }
+
+    /* Kichik ekranlar uchun */
+    @media (max-width: 480px) {
+      .clock {
+        font-size: 80px;
+      }
+      #timer {
+        font-size: 40px;
+      }
+      .header2 h1 {
+        font-size: 24px;
+      }
+      .header2 img {
+        max-width: 80px;
+      }
+      #zoomButton,
+      #exitFullscreenButton,
+      #backgroundToggle {
+        font-size: 14px;
+        padding: 8px 12px;
+      }
+      .yozuv {
+        font-size: 14px;
+      }
+      .form-container {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+      .form-container label {
+        margin-right: 0;
+        margin-bottom: 5px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <div class="clock" id="clock">00:00:00</div>
+  <div class="header2">
+    <img src="nom.gif" alt="">
+    <h1>30-MAKTAB</h1>
+  </div>
+  <div class="mini-timer">
+    <h2></h2> <!-- Taymer so'zi olib tashlandi -->
+    <div id="timer">00:00:00</div>
+  </div>
+  <div class="form-container">
+    <label for="start-time">CHSB boshlanish vaqti:</label>
+    <input type="time" id="start-time">
+    <div class="spacer"></div>
+    <label for="end-time">CHSB tugash vaqti:</label>
+    <input type="time" id="end-time">
+  </div>
+
+  <!-- Footer -->
+  <div class="yozuv">Developed by <a href="https://t.me/bexruzbek1030" target="_blank">Bexruzbek Qodirov</a></div>
+
+  <!-- Kattalashtirish tugmasi -->
+  <button id="zoomButton">Kattalashtirish</button>
+
+  <!-- Fullscreen chiqish tugmasi -->
+  <button id="exitFullscreenButton">Qaytarish</button>
+
+  <button id="backgroundToggle">Fonni o'zgartirish</button>
+
+  <audio id="alarmSound" src="audio.mp3" preload="auto"></audio> <!-- Qo'shiq manbasi -->
+
+  <script>
+    const bgToggleButton = document.getElementById('backgroundToggle');
+    const backgrounds = [
+      "url('fon 1.jpg')",
+      "url('fon 2.jpg')",
+      "url('fon.jpg')",
+      "url('fon 3.jpg')",
+      // "url('fon 4.jpg')"
+    ];
+    let currentIndex = 0;
+
+    bgToggleButton.addEventListener('click', () => {
+      currentIndex = (currentIndex + 1) % backgrounds.length;
+      document.body.style.backgroundImage = backgrounds[currentIndex];
+    });
+
+    function updateClock() {
+      const options = {
+        timeZone: 'Asia/Tashkent',
+        hour: '2-digit',
+        minute: '2-digit',
+        second: '2-digit',
+      };
+      const now = new Intl.DateTimeFormat('uz-UZ', options).format(new Date());
+      document.getElementById('clock').textContent = now;
+    }
+
+    setInterval(updateClock, 1000);
+    updateClock();
+
+    const zoomButton = document.getElementById('zoomButton');
+    const exitFullscreenButton = document.getElementById('exitFullscreenButton');
+
+    zoomButton.addEventListener('click', () => {
+      if (!document.fullscreenElement) {
+        document.documentElement.requestFullscreen();
+        zoomButton.textContent = 'Qaytarish';
+        exitFullscreenButton.style.display = 'block';
+      }
+    });
+
+    exitFullscreenButton.addEventListener('click', () => {
+      if (document.exitFullscreen) {
+        document.exitFullscreen();
+        zoomButton.textContent = 'Kattalashtirish';
+        exitFullscreenButton.style.display = 'none';
+      }
+    });
+
+    document.addEventListener('fullscreenchange', () => {
+      if (!document.fullscreenElement) {
+        zoomButton.textContent = 'Kattalashtirish';
+        exitFullscreenButton.style.display = 'none';
+      }
+    });
+
+    let startTimeInput = document.getElementById('start-time');
+    let endTimeInput = document.getElementById('end-time');
+    let timerElement = document.getElementById('timer');
+
+    function startMiniTimer() {
+      let startTime = startTimeInput.value;
+      let endTime = endTimeInput.value;
+
+      if (startTime && endTime) {
+        let start = new Date(`1970-01-01T${startTime}:00`);
+        let end = new Date(`1970-01-01T${endTime}:00`);
+
+        let difference = end - start;
+
+        if (difference > 0) {
+          let interval = setInterval(() => {
+            difference -= 1000;
+
+            let hours = Math.floor(difference / (1000 * 60 * 60));
+            let minutes = Math.floor((difference % (1000 * 60 * 60)) / (1000 * 60));
+            let seconds = Math.floor((difference % (1000 * 60)) / 1000);
+
+            timerElement.textContent = `${pad(hours)}:${pad(minutes)}:${pad(seconds)}`;
+
+            if (difference <= 0) {
+              clearInterval(interval);
+              timerElement.textContent = "00:00:00";
+              const alarmSound = document.getElementById('alarmSound');
+              alarmSound.play(); // Qo'shiqni chaling
+
+              // Qo'shiq tugagach, avtomatik o'chirish
+              setTimeout(() => {
+                alarmSound.pause();
+                alarmSound.currentTime = 0; // Qo'shiqni boshiga qaytarish
+              }, 300000); // 5 minut (300,000 ms)
+            }
+          }, 1000);
+        }
+      }
+    }
+
+    function pad(num) {
+      return num < 10 ? '0' + num : num;
+    }
+
+    startTimeInput.addEventListener('change', startMiniTimer);
+    endTimeInput.addEventListener('change', startMiniTimer);
+  </script>
+</body>
+
+</html>
